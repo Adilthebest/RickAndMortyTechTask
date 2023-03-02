@@ -29,7 +29,6 @@ abstract class BaseAlertFilter<VB : ViewBinding>(
         getCheckedFilter()
         initView()
         filterCheckId()
-        getCheckedFilter()
     }
 
     abstract fun getCheckedFilter()
