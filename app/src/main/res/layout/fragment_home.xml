@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/rickBlue"
+                android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/viewPager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout_editor_absoluteX="-27dp">
+       >
 
 
         <com.google.android.material.tabs.TabLayout
@@ -69,7 +69,6 @@
             app:tabIndicatorColor="@color/rickGreen"
             app:tabTextColor="@color/rickGreen"
             android:scrollbarSize="12dp"
-            android:background="@color/rickBlue"
             app:tabIndicatorHeight="3dp">
         </com.google.android.material.tabs.TabLayout>
 

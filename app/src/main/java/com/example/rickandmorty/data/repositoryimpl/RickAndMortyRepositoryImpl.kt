@@ -12,7 +12,7 @@ import com.example.rickandmorty.domain.model.modelLocation.Location
 import com.example.rickandmorty.domain.repository.RickAndMortyRepository
 import kotlinx.coroutines.flow.Flow
 
-class RIckAndMortyRepositoryImpl(private val apiService: ApiService) : RickAndMortyRepository,
+class RickAndMortyRepositoryImpl(private val apiService: ApiService) : RickAndMortyRepository,
     BaseRepository() {
     override fun getAllCharacters(
         name: String?,

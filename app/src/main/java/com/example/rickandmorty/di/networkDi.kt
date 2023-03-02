@@ -1,5 +1,7 @@
 package com.example.rickandmorty.di
 
+import com.example.rickandmorty.BuildConfig
+import com.example.rickandmorty.BuildConfig.BASE_URL
 import com.example.rickandmorty.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,10 +29,9 @@ fun provideOkHttpClient(): OkHttpClient {
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    return Retrofit.Builder().baseUrl("https://rickandmortyapi.com/api/")
+    return Retrofit.Builder().baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient).build()
-
 }
 
 fun provideApi(retrofit: Retrofit): ApiService {

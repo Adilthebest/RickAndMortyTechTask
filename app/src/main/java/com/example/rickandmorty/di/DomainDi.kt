@@ -6,14 +6,8 @@ import com.example.rickandmorty.domain.usecase.GetAllLocationUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
-    factory {
-        GetAllCharactersUseCase(rickAndMortyRepository = get())
-    }
-    factory {
-        GetAllEpisodeUseCase(rickAndMortyRepository = get())
-    }
-    factory {
-        GetAllLocationUseCase(rickAndMortyRepository = get())
-    }
+    factory { GetAllCharactersUseCase(rickAndMortyRepository = get()) }
+    factory { GetAllEpisodeUseCase(rickAndMortyRepository = get()) }
+    factory { GetAllLocationUseCase(rickAndMortyRepository = get()) }
 
 }

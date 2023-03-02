@@ -12,6 +12,7 @@ import com.example.rickandmorty.presentation.ui.fragment.filter.FilterFragment
 import com.example.rickandmorty.presentation.ui.fragment.characters.AllViewModel
 import com.example.rickandmorty.presentation.ui.fragment.characters.CharactersAdapter
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.merge
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
@@ -53,23 +54,12 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
 
     private fun viewFilter() {
         safeFlowGather {
-            viewModel.getAllCharactersSearch.collectLatest {
-                getViewModelCharacter()
-            }
-        }
-        safeFlowGather {
-            viewModel.statusFilter.collectLatest {
-                getViewModelCharacter()
-            }
-        }
-        safeFlowGather {
-            viewModel.genderFilter.collectLatest {
-                getViewModelCharacter()
-            }
-        }
-
-        safeFlowGather {
-            viewModel.speciesFilter.collectLatest {
+            merge(
+                viewModel.getAllCharactersSearch,
+                viewModel.statusFilter,
+                viewModel.genderFilter,
+                viewModel.speciesFilter
+            ).collectLatest {
                 getViewModelCharacter()
             }
         }

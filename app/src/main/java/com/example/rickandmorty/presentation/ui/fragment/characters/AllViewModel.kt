@@ -47,7 +47,7 @@ class AllViewModel(
     }
 
     fun getAllSearchQuery(newQuery: String?) {
-        _getAllEpisodeSearch.value = newQuery
+        _getAllEpisodeSearch.value =newQuery
         _getAllLocationSearch.value = newQuery
         _getAllCharactersSearch.value = newQuery
     }
