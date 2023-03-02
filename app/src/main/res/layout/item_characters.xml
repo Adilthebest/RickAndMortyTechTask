@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_of_Characters"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_character"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -29,7 +28,7 @@
             android:id="@+id/name_character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name"
+            android:text="@string/name_character"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -37,7 +36,7 @@
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="status"
+            android:text="@string/status_character"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_status"
@@ -63,10 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Last known location:"
+            android:text="@string/last_known_location_character"
             android:textColor="@color/sera"
-
-            android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toBottomOf="@+id/status_character" />
 
@@ -76,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:text="Last known location:"
+            android:text="@string/last_known_location_character_tv"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
@@ -88,9 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="create "
+            android:text="@string/create_character"
             android:textColor="@color/sera"
-            android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
@@ -100,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="create"
+            android:text="@string/create_character_tv"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
