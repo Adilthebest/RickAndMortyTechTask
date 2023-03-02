@@ -23,7 +23,6 @@ abstract class BaseAlertFilter<VB : ViewBinding>(
     ): View? {
         dialog?.setCancelable(false)
         dialog?.setCanceledOnTouchOutside(false)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.BLACK))
         return inflater.inflate(R.layout.fragment_filtr, container, false)
     }
 
