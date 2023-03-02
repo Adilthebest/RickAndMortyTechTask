@@ -3,11 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/characterFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/characterFragment"
-        android:name="com.example.rickandmorty.CharacterFragment"
-        android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.rickandmorty.presentation.ui.fragment.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.example.rickandmorty.presentation.ui.fragment.characters.CharactersFragment"
+        android:label="fragment_characters"
+        tools:layout="@layout/fragment_characters" />
+    <fragment
+        android:id="@+id/episodeFragment"
+        android:name="com.example.rickandmorty.presentation.ui.fragment.episode.EpisodeFragment"
+        android:label="fragment_episode"
+        tools:layout="@layout/fragment_episode" />
+    <dialog
+        android:id="@+id/filterFragment"
+        android:name="com.example.rickandmorty.presentation.ui.fragment.filter.FilterFragment"
+        android:label="fragment_filtr"
+        tools:layout="@layout/fragment_filtr" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.rickandmorty.presentation.ui.fragment.location.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

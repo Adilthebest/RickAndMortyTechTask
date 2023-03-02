@@ -2,34 +2,15 @@ package com.example.rickandmorty.presentation.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickandmorty.domain.utils.Resourse
-import kg.example.mangalib.domain.utils.UiState
-import kotlinx.coroutines.Dispatchers
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import androidx.paging.map
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.map
 
-abstract class BaseViewModel:ViewModel() {
-    protected fun <T> Flow<Resourse<T>>.collectFlow(_state:MutableStateFlow<UiState<T>>){
-        viewModelScope.launch(Dispatchers.IO) {
-            this@collectFlow.collect{result->
-                when(result){
-                    is Resourse.Loading -> {
-                        _state.value = UiState.Loading()
-                    }
-                    is Resourse.Success -> {
-                        if (result.data != null) {
-                            _state.value = UiState.Success(result.data!!)
-                        }
-                    }
-                    is Resourse.Error -> {
-                            _state.value = UiState.Error(result.message!!)
-                    }
-                }
-                }
-
-            }
-
-    }
+abstract class BaseViewModel : ViewModel() {
+    protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
+        mappedData: (T) -> S
+    ) = map { it.map { data -> mappedData(data) } }.cachedIn(viewModelScope)
 
 }

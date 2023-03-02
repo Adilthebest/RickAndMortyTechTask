@@ -1,7 +1,5 @@
-package com.timplifier.data.base
+package com.example.rickandmorty.data.base
 
-
-import com.example.rickandmorty.data.base.BaseInfo
 import com.google.gson.annotations.SerializedName
 
 data class BasePagingResponse<T>(

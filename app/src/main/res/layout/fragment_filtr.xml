@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.fragment.filter.FilterFragment">
+
+    <RadioGroup
+
+        android:id="@+id/rg_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/status_alive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alive"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/status_dead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="dead"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/status_unknown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="unknown"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/rg_status"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/species_human"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Human"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/species_alien"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alien"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/species_humanoid"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="humanoid"
+            android:textColor="@color/white" />
+
+    </RadioGroup>
+
+    <RadioGroup
+
+        android:id="@+id/rg_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/rg_species"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/gender_male"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="male"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/gender_female"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/gender_unknown"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unknown"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_filtr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="filt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_gender" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_gender" />
+</androidx.constraintlayout.widget.ConstraintLayout>

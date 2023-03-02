@@ -1,7 +1,6 @@
 package com.example.rickandmorty.di
 
-import com.example.rickandmorty.data.remote.CharacterApi
-import com.example.rickandmorty.data.utils.Constant.BASE_URL
+import com.example.rickandmorty.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -20,7 +19,7 @@ fun provideOkHttpClient(): OkHttpClient {
     interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
     return OkHttpClient.Builder()
-            .readTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
         .addInterceptor(interceptor)
@@ -28,12 +27,12 @@ fun provideOkHttpClient(): OkHttpClient {
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    return Retrofit.Builder().baseUrl(BASE_URL)
+    return Retrofit.Builder().baseUrl("https://rickandmortyapi.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient).build()
 
 }
 
-fun provideApi(retrofit: Retrofit): CharacterApi {
-    return retrofit.create(CharacterApi::class.java)
+fun provideApi(retrofit: Retrofit): ApiService {
+    return retrofit.create(ApiService::class.java)
 }
