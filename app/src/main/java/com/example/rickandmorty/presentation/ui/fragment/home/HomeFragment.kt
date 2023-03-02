@@ -23,14 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 return false
             }
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                p0.let {
-                    if (it != null) {
-                        viewModel.getAllSearchQuery(it)
-                    }
-                }
-                return false
-            }
+            override fun onQueryTextChange(p0: String?) = viewModel.getAllSearchQuery(p0).run { true }
         })
     }
 }

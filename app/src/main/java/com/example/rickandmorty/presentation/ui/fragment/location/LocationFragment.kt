@@ -25,7 +25,7 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
         return FragmentLocationBinding.inflate(layoutInflater)
     }
 
-    override fun initListener() {
+    override fun initPaging() {
         binding.charactersRecycler.layoutManager = LinearLayoutManager(context)
         binding.charactersRecycler.adapter = adapter
 
@@ -48,4 +48,5 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
             adapter.submitData(it)
         }
     }
+
 }

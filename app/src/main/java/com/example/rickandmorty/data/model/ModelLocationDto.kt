@@ -8,7 +8,6 @@ data class ModelLocation(
     val results: List<CLocationDto>
 )
 
-
 data class LocationDto(
     val created: String,
     val dimension: String,

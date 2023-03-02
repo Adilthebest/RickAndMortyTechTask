@@ -13,5 +13,4 @@ class CharacterPagingSource(
     private val species: String?
 ) : BasePagingSource<ResultDto, Result>({
     service.getAllCharacters(it, name, status, gender, species)
-}
-)
+})

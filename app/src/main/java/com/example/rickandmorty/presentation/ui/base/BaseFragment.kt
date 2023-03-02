@@ -15,9 +15,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
-
     lateinit var binding: VB
-
     abstract fun inflate(layoutInflater: LayoutInflater): VB
 
     override fun onCreateView(
@@ -33,10 +31,12 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initListener()
+        initPaging()
     }
 
     open fun initView() {}
     open fun initListener() {}
+    open fun initPaging(){}
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
@@ -55,4 +55,5 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             }
         }
     }
+
 }

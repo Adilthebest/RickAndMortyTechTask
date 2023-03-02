@@ -29,11 +29,9 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
         return FragmentCharactersBinding.inflate(layoutInflater)
     }
 
-
-    override fun initView() {
+    override fun initPaging() {
         binding.charactersRecycler.layoutManager = LinearLayoutManager(context)
         binding.charactersRecycler.adapter = adapter
-
         adapter.addLoadStateListener { loadStates ->
             binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
         }
@@ -44,14 +42,6 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
         filterAlert()
         viewFilter()
     }
-
-    private fun filterAlert() {
-        binding.filter.setOnClickListener {
-            val filter = FilterFragment()
-            filter.show((activity as AppCompatActivity).supportFragmentManager, "filter")
-        }
-    }
-
     private fun viewFilter() {
         safeFlowGather {
             merge(
@@ -70,5 +60,13 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
             adapter.submitData(it)
         }
     }
+
+    private fun filterAlert() {
+        binding.filter.setOnClickListener {
+            val filter = FilterFragment()
+            filter.show((activity as AppCompatActivity).supportFragmentManager, "character")
+        }
+    }
+
 }
 

@@ -24,7 +24,7 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
         return FragmentEpisodeBinding.inflate(layoutInflater)
     }
 
-    override fun initView() {
+    override fun initPaging() {
         binding.episodeRecycler.layoutManager = LinearLayoutManager(context)
         binding.episodeRecycler.adapter = adapter
 
@@ -34,7 +34,7 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
         getViewModelEpisode()
     }
 
-    override fun initListener() {
+    override fun initView() {
         safeFlowGather {
             viewModel.getAllEpisodeSearch.collectLatest {
                 getViewModelEpisode()

@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.example.rickandmorty.data.mapper.DataMapper
 
-abstract class BaseRepository() {
+abstract class BaseRepository {
 
     internal fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
