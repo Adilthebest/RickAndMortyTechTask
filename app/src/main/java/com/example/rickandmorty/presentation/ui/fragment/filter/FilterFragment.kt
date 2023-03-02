@@ -19,16 +19,16 @@ class FilterFragment : BaseAlertFilter<FragmentFiltrBinding>(R.layout.fragment_f
         getCheckedGender()?.let { binding.rgGender.check(it) }
     }
 
-    override fun initView() {
-        binding.btnFiltr.setOnClickListener {
+    override fun initView() = with(binding) {
+        btnFiltr.setOnClickListener {
             currentFilter.apply {
                 viewModel.filter(status, species, gender)
             }
         }
-        binding.btnClear.setOnClickListener {
-            binding.rgGender.clearCheck()
-            binding.rgStatus.clearCheck()
-            binding.rgSpecies.clearCheck()
+        btnClear.setOnClickListener {
+            rgGender.clearCheck()
+            rgStatus.clearCheck()
+            rgSpecies.clearCheck()
             currentFilter.gender = null
             currentFilter.status = null
             currentFilter.species = null
@@ -65,7 +65,6 @@ class FilterFragment : BaseAlertFilter<FragmentFiltrBinding>(R.layout.fragment_f
             }
         }
     }
-
 
     private fun getCheckedSpecies(): Int? {
         return when (currentFilter.species) {
