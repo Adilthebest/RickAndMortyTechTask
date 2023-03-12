@@ -29,7 +29,8 @@ class AllViewModel(
     val speciesFilter = _speciesFilter.asStateFlow()
     val genderFilter = _genderFilter.asStateFlow()
 
-    fun getLocationPaging() = locationUseCase(_getAllLocationSearch.value).collectPagingRequest {it}
+    fun getLocationPaging() =
+        locationUseCase(_getAllLocationSearch.value).collectPagingRequest { it }
 
     fun getEpisodePaging() = episodeUseCase(_getAllEpisodeSearch.value).collectPagingRequest { it }
 
@@ -47,7 +48,7 @@ class AllViewModel(
     }
 
     fun getAllSearchQuery(newQuery: String?) {
-        _getAllEpisodeSearch.value =newQuery
+        _getAllEpisodeSearch.value = newQuery
         _getAllLocationSearch.value = newQuery
         _getAllCharactersSearch.value = newQuery
     }

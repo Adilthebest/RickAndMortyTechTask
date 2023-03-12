@@ -2,7 +2,6 @@ package com.example.rickandmorty.presentation.ui.fragment.characters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -10,8 +9,7 @@ import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ItemCharactersBinding
 import com.example.rickandmorty.domain.model.modelCharacters.Result
 
-class CharactersAdapter :
-    PagingDataAdapter<Result, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
+class CharactersAdapter : androidx.paging.PagingDataAdapter<Result, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
@@ -35,7 +33,7 @@ class CharactersAdapter :
                 imageCharacter.load(image)
                 nameCharacter.text = name
                 when (status) {
-                    "Alive" -> imageStatus.setImageResource(R.drawable.ic_alive_status)
+                     "Alive" -> imageStatus.setImageResource(R.drawable.ic_alive_status)
                     "Dead" -> imageStatus.setImageResource(R.drawable.ic_dead_status)
                     "unknown" -> imageStatus.setImageResource(R.drawable.ic_unknown_status)
                 }

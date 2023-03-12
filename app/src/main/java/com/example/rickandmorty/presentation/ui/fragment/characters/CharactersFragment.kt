@@ -1,6 +1,8 @@
 package com.example.rickandmorty.presentation.ui.fragment.characters
 
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -14,6 +16,7 @@ import com.example.rickandmorty.presentation.ui.fragment.characters.CharactersAd
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.merge
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import retrofit2.http.Headers
 
 class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
     private val viewModel: AllViewModel by sharedViewModel()

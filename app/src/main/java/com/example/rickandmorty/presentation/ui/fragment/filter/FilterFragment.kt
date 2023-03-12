@@ -9,7 +9,8 @@ import com.example.rickandmorty.domain.model.modelCharacters.CharacterFilter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FilterFragment : BaseAlertFilter<FragmentFiltrBinding>(R.layout.fragment_filtr) {
-    private var currentFilter = CharacterFilter()
+    private var currentFilter =
+        com.example.rickandmorty.domain.model.modelCharacters.CharacterFilter()
     private val viewModel: AllViewModel by sharedViewModel()
     override val binding by viewBinding<FragmentFiltrBinding>()
 

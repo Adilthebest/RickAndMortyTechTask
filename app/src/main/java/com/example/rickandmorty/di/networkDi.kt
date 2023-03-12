@@ -1,6 +1,5 @@
 package com.example.rickandmorty.di
 
-import com.example.rickandmorty.BuildConfig
 import com.example.rickandmorty.BuildConfig.BASE_URL
 import com.example.rickandmorty.data.remote.ApiService
 import okhttp3.OkHttpClient

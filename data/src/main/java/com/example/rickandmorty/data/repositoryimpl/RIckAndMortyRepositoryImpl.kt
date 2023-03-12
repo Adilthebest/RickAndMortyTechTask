@@ -15,8 +15,7 @@ class RIckAndMortyRepositoryImpl(private val apiService: ApiService) : RickAndMo
         gender: String?,
         species: String?
     ) = doPagingRequest(CharacterPagingSource(apiService, name, status, gender, species))
-
-
+    
     override fun getAllEpisode(name: String?) =
         doPagingRequest(EpisodePagingSource(apiService, name))
 

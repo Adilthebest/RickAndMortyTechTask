@@ -11,7 +11,7 @@ import com.example.rickandmorty.domain.model.modelEpisode.Episode
 class EpisodeAdapter :
     PagingDataAdapter<Episode, EpisodeAdapter.EpisodeViewHolder>(LocationModelItemCallback) {
     class EpisodeViewHolder(private val binding: ItemEpisodeBinding) : ViewHolder(binding.root) {
-        fun bind(episode: Episode) = with(binding) {
+        fun bind(episode: com.example.rickandmorty.domain.model.modelEpisode.Episode) = with(binding) {
             episode.apply {
                 tvNumber.text = id.toString()
                 tvName.text = name
@@ -35,12 +35,12 @@ class EpisodeAdapter :
         )
     }
 
-    private object LocationModelItemCallback : DiffUtil.ItemCallback<Episode>() {
-        override fun areItemsTheSame(oldItem: Episode, newItem: Episode): Boolean {
+    private object LocationModelItemCallback : DiffUtil.ItemCallback<com.example.rickandmorty.domain.model.modelEpisode.Episode>() {
+        override fun areItemsTheSame(oldItem: com.example.rickandmorty.domain.model.modelEpisode.Episode, newItem: com.example.rickandmorty.domain.model.modelEpisode.Episode): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Episode, newItem: Episode): Boolean {
+        override fun areContentsTheSame(oldItem: com.example.rickandmorty.domain.model.modelEpisode.Episode, newItem: com.example.rickandmorty.domain.model.modelEpisode.Episode): Boolean {
             return oldItem.id == newItem.id && oldItem.name == newItem.name
         }
     }
