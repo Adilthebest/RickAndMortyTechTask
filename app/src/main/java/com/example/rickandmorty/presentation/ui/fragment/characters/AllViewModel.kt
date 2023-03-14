@@ -4,6 +4,7 @@ import com.example.rickandmorty.domain.usecase.GetAllCharactersUseCase
 import com.example.rickandmorty.domain.usecase.GetAllEpisodeUseCase
 import com.example.rickandmorty.domain.usecase.GetAllLocationUseCase
 import com.example.rickandmorty.presentation.ui.base.BaseViewModel
+import com.example.rickandmorty.presentation.ui.model.toUI
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
@@ -29,17 +30,16 @@ class AllViewModel(
     val speciesFilter = _speciesFilter.asStateFlow()
     val genderFilter = _genderFilter.asStateFlow()
 
-    fun getLocationPaging() =
-        locationUseCase(_getAllLocationSearch.value).collectPagingRequest { it }
+    fun getLocationPaging() = locationUseCase(_getAllLocationSearch.value).collectPagingRequest { it.toUI() }
 
-    fun getEpisodePaging() = episodeUseCase(_getAllEpisodeSearch.value).collectPagingRequest { it }
+    fun getEpisodePaging() = episodeUseCase(_getAllEpisodeSearch.value).collectPagingRequest { it.toUI() }
 
     fun getCharacterPaging() = charactersUseCase(
         _getAllCharactersSearch.value,
         _statusFilter.value,
         _genderFilter.value,
         _speciesFilter.value
-    ).collectPagingRequest { it }
+    ).collectPagingRequest { it.toUI() }
 
     fun filter(status: String?, species: String?, gender: String?) {
         _statusFilter.value = status

@@ -27,5 +27,6 @@ abstract class BaseRepository {
             pagingSource
         }
     ).flow
+
 }
 

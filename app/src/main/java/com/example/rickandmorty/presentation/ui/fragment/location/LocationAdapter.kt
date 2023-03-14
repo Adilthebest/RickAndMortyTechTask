@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.rickandmorty.databinding.ItemLocationBinding
 import com.example.rickandmorty.domain.model.modelLocation.Location
+import com.example.rickandmorty.presentation.ui.model.LocationUI
 
 class LocationAdapter :
-    PagingDataAdapter<Location, LocationAdapter.LocationViewHolder>(LocationModelItemCallback) {
+    PagingDataAdapter<LocationUI, LocationAdapter.LocationViewHolder>(LocationModelItemCallback) {
     class LocationViewHolder(private val binding: ItemLocationBinding) : ViewHolder(binding.root) {
-        fun bind(location: Location) = with(binding) {
+        fun bind(location: LocationUI) = with(binding) {
             location.apply {
                 tvNumber.text = id.toString()
                 tvName.text = name
@@ -35,12 +36,12 @@ class LocationAdapter :
         )
     }
 
-    private object LocationModelItemCallback : DiffUtil.ItemCallback<Location>() {
-        override fun areItemsTheSame(oldItem: Location, newItem: Location): Boolean {
+    private object LocationModelItemCallback : DiffUtil.ItemCallback<LocationUI>() {
+        override fun areItemsTheSame(oldItem: LocationUI, newItem: LocationUI): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Location, newItem: Location): Boolean {
+        override fun areContentsTheSame(oldItem: LocationUI, newItem: LocationUI): Boolean {
             return oldItem.id == newItem.id && oldItem.name == newItem.name
         }
     }

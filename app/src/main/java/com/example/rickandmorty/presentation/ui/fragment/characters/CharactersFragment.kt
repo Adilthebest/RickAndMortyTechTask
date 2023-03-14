@@ -37,6 +37,8 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
         binding.charactersRecycler.adapter = adapter
         adapter.addLoadStateListener { loadStates ->
             binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
+            binding.progress.isVisible = loadStates.refresh is LoadState.Loading
+
         }
         getViewModelCharacter()
     }

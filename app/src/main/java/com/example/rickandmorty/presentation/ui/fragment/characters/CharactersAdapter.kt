@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ItemCharactersBinding
-import com.example.rickandmorty.domain.model.modelCharacters.Result
+import com.example.rickandmorty.presentation.ui.model.ResultUI
 
-class CharactersAdapter : androidx.paging.PagingDataAdapter<Result, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
+class CharactersAdapter : androidx.paging.PagingDataAdapter<ResultUI, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
@@ -28,7 +28,7 @@ class CharactersAdapter : androidx.paging.PagingDataAdapter<Result, CharactersAd
 
     inner class CharactersViewHolder(private val binding: ItemCharactersBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(result: Result) = with(binding) {
+        fun bind(result: ResultUI) = with(binding) {
             result.apply {
                 imageCharacter.load(image)
                 nameCharacter.text = name
@@ -50,12 +50,12 @@ class CharactersAdapter : androidx.paging.PagingDataAdapter<Result, CharactersAd
         }
     }
 
-    private object CharacterModelItemCallback : DiffUtil.ItemCallback<Result>() {
-        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
+    private object CharacterModelItemCallback : DiffUtil.ItemCallback<ResultUI>() {
+        override fun areItemsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
+        override fun areContentsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
             return oldItem.id == newItem.id && oldItem.image == newItem.image
         }
     }
